@@ -202,6 +202,7 @@ class AttnBlock(nn.Module):
         return x+h_
 
 
+
 def make_attn(in_channels, attn_type="vanilla"):
     assert attn_type in ["vanilla", "linear", "none"], f'attn_type {attn_type} unknown'
     print(f"making attention of type '{attn_type}' with {in_channels} in_channels")

@@ -1,3 +1,5 @@
+This repo is modified by Jiarui, removed PyTorch Lightning and taming dependencies.
+For very light API inference only
 # Stable Diffusion
 *Stable Diffusion was made possible thanks to a collaboration with [Stability AI](https://stability.ai/) and [Runway](https://runwayml.com/) and builds upon our previous work:*
 
