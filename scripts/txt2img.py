@@ -221,7 +221,8 @@ def main():
 
     start_code = None
     if opt.fixed_code:
-        start_code = torch.randn([opt.n_samples, opt.C, opt.H // opt.f, opt.W // opt.f], device=device)
+        rng = torch.Generator(device=device).manual_seed(42)
+        start_code = torch.randn([opt.n_samples, opt.C, opt.H // opt.f, opt.W // opt.f], device=device, generator=rng)
 
     precision_scope = autocast if opt.precision=="autocast" else nullcontext
     with torch.no_grad():

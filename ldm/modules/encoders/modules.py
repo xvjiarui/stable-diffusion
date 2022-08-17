@@ -16,9 +16,12 @@ class FrozenCLIPEmbedder(AbstractEncoder):
         super().__init__()
         self.tokenizer = CLIPTokenizer.from_pretrained(version)
         self.transformer = CLIPTextModel.from_pretrained(version)
-        self.device = device
         self.max_length = max_length
         self.freeze()
+    
+    @property
+    def device(self):
+        return next(self.parameters()).device
 
     def freeze(self):
         self.transformer = self.transformer.eval()
