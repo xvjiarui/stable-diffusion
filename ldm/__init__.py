@@ -8,3 +8,10 @@ def build_default_ldm() -> LatentDiffusion:
 
     config = OmegaConf.load(default_cfg_path)
     return instantiate_from_config(config.model)
+
+def build_ldm_from_cfg(cfg_name) -> LatentDiffusion:
+
+    cfg_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "configs", cfg_name)
+
+    config = OmegaConf.load(cfg_path)
+    return instantiate_from_config(config.model)

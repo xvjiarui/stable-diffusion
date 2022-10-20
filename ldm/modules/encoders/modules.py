@@ -8,6 +8,16 @@ class AbstractEncoder(nn.Module):
     def encode(self, *args, **kwargs):
         raise NotImplementedError
 
+class ClassEmbedder(nn.Module):
+    def __init__(self, embed_dim, n_classes=1000, key='class'):
+        super().__init__()
+        self.key = key
+        self.embedding = nn.Embedding(n_classes, embed_dim)
+
+    def forward(self, class_idx):
+        # this is for use in crossattn
+        c = self.embedding(class_idx.unsqueeze(-1))
+        return c
 
 
 class FrozenCLIPEmbedder(AbstractEncoder):
