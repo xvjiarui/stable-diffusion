@@ -7,8 +7,8 @@ setup(
     description="",
     author="CompVis",
     packages=find_packages(),
-    # install_requires=[
-    #     "fairscale>=0.4.4"
-    # ],
+    install_requires=[
+        "pytorch-lightning>=1.4.2"
+    ],
     include_package_data=True,
 )
